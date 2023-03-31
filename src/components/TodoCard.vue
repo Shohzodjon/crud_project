@@ -177,9 +177,10 @@ export default {
       this.postObject.name_uz = ''
     },
     editFunc(id) {
+      let box = this.$refs.wrapp[this.postObject.product_index]
       this.$store.commit('ADD__DATA', this.postObject)
       this.$store.commit('DELETE__DATA', id)
-
+      box.classList.remove('unactive__card')
       axios
         .put('product', {
           id: this.productId,
